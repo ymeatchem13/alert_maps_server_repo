@@ -1,0 +1,16 @@
+<div mat-dialog-title>
+    <h1 class="title">UC Alert Maps</h1>
+    <button mat-icon-button class="close" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content>
+    <p class="p1">Want to receive the latest emergency updates?</p>
+    <p class="p2">Subscribe to our mailing list.</p>
+    <mat-form-field appearance="outline">
+        <input placeholder="name@email.com" [(ngModel)]="emailAddress" matInput>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button (click)="submit()" class="btn" mat-button>Continue</button>
+</div>

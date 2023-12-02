@@ -1,0 +1,180 @@
+<div class="container" #alertDialog>
+
+    <!-- Main View -->
+    <div class="main-container" *ngIf="displayMainView">
+        <agm-map id="map" [zoom]="16" [longitude]="data.longitude" [latitude]="data.latitude">
+            <agm-marker [longitude]="data.longitude" [latitude]="data.latitude"></agm-marker>
+        </agm-map>
+    
+        <!-- Address -->
+        <a class="dialog-menu-link">
+            <mat-icon>place</mat-icon>
+            <p>{{data.address}}</p>
+        </a>
+        
+        <hr class="updates-top">
+        
+        <!-- Updates -->
+
+        <button class="main-view-close" (click)="closeDialog()" matTooltip="Close Side Panel" [matTooltipPosition]="'right'">
+            <mat-icon>arrow_left</mat-icon>
+        </button>
+
+        <div class="dialog-menu-updates">
+            <button class="dialog-menu-updates-button" (click)="openUpdatesView()">View Updates
+            </button>
+        </div>
+    
+        <hr class="updates-bottom">
+        
+        <!-- Comments -->
+        <div class="comments">
+            <!-- Comment Header -->
+            <div class="comments-header">
+                <p>Comments</p>
+                <img src="../assets/help.png" matTooltip="Reviews are automatically processed to detect inappropriate content like fake comments and spam. 
+                We may take down comments that are flagged in order to comply with UC policies or legal obligations."/>
+            </div>
+    
+            <!-- Comment Section -->
+            <div class="comment-container">
+                <mat-card class="mat-elevation-z0" *ngIf="filteredCommentList?.length > 0">
+                    <mat-card-header>
+                        <div class="circle">
+                            <p class="circle-inner">{{filteredCommentList[0]?.initials}}</p>
+                        </div>
+                        <div>
+                            <p class="comment-container-name">{{filteredCommentList[0]?.user_name}}</p>
+                            <p class="comment-container-date">{{filteredCommentList[0]?.added_date | date:'MM-dd-yy'}}</p>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{filteredCommentList[0]?.comment}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            
+            <div class="comments-tools">
+                <!-- View More Comments Btn -->
+                <a class="more-comments" (click)="openCommentsView()">More comments</a>
+    
+                <!-- Add Comment Input -->
+                <div class="add-comment">
+                    <div class="user-circle">
+                        <p class="user-circle-inner">{{this.userInitials}}</p>
+                    </div>
+                    <mat-form-field appearance="outline">
+                        <input placeholder="Add Comment" type="text" (click)="openAddCommentsView()" matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Updates View -->
+    <div class="updates-container" *ngIf="displayUpdatesView">
+        <div class="updates-container-header">
+            <mat-icon class="arrow-icon" (click)="openMainView()">arrow_back</mat-icon>
+            <h5>Updates</h5>
+            <button mat-icon-button class="close" (click)="closeDialog()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+
+        <div class="updates-container-box" *ngFor="let description of descriptions">
+            <mat-card class="mat-elevation-z0">
+                <mat-card-content>
+                    <p>{{description}}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <!-- Comments View -->
+    <div class="comments-container" *ngIf="displayCommentsView">
+        <div class="comments-container-header">
+            <mat-icon class="arrow-icon" (click)="openMainView()">arrow_back</mat-icon>
+            <h5>Comments</h5>
+            <span></span>
+        </div>
+
+        <div class="comments-container-box" *ngFor="let comment of filteredCommentList; let index=index">
+            <mat-card class="mat-elevation-z0" [ngClass]="{'edit-comment': comment.display_delete}">
+                <mat-card-header>
+                    <div class="comments-container-box-user">
+                        <div class="circle">
+                            <p class="circle-inner">{{comment?.initials}}</p>
+                        </div>
+                        <div>
+                            <p class="comments-container-name">{{comment?.user_name}}</p>
+                            <p class="comments-container-date">{{comment?.added_date | date: 'MM-dd-yy'}}</p>
+                        </div>
+                    </div>
+
+                    <!-- Edit Comment -->
+                    <mat-icon class="comment" *ngIf="comment?.display_edit && comment?.is_editable" matTooltip="Edit your comment" (click)="onEditCommentClick(index)">edit</mat-icon>
+                    <!-- Delete Comment -->
+                    <div *ngIf="comment?.display_delete && comment?.is_editable" (click)="deleteComment(index)" class="delete-container">
+                        <mat-icon class="comment">delete</mat-icon>
+                        <p>Delete</p>
+                    </div>
+                    
+                    <div *ngIf="comment?.display_report && !comment?.is_editable">
+                        <!-- Report Comment -->
+                        <button mat-icon-button [mat-menu-trigger-for]="menu">
+                            <mat-icon class="comment">more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button (click)="reportComment(index)" mat-menu-item>
+                                <span>Report Comment</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                </mat-card-header>
+                
+                <mat-card-content *ngIf="!comment.display_delete">
+                    <p>{{comment.comment}}</p>
+                </mat-card-content>
+            </mat-card>
+
+            <div *ngIf="comment.display_delete" class="comments-container-edit-text">
+                <mat-form-field appearance="outline">
+                    <textarea [(ngModel)]="editedComment" matInput></textarea>
+                </mat-form-field>
+                <div class="comments-container-edit-actions">
+                    <a (click)="updateCommentSave(index)"><span>Save</span></a>
+                    <a (click)="updateCommentCancel(index)"><span>Cancel</span></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Add Comments View -->
+    <div class="add-comments-container" *ngIf="displayAddCommentsView">
+        <div class="add-comments-container-header">
+            <mat-icon class="arrow-icon" (click)="openMainView()">arrow_back</mat-icon>
+            <h5>Comments</h5>
+            <span (click)="validateComment()">Post</span>
+        </div>
+
+        <div class="add-comments-container-user">
+            <div class="user-circle">
+                <p class="user-circle-inner">{{userInitials}}</p>
+            </div>
+            
+            <div class="add-comments-container-user-div">
+                <p>{{userName}}</p>
+                <div class="add-comments-container-info">
+                    <p>Posting publicly</p>
+                    <mat-icon (click)="openPostingPublicDialog()">info</mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <mat-form-field class="add-comments-container-text" appearance="outline">
+            <textarea [(ngModel)]="comment" class="add-comments-container-text-area" placeholder="Add comments to better inform the UC community." type="text" required matInput></textarea>
+        </mat-form-field>
+    </div>
+</div>

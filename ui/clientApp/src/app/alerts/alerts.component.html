@@ -1,0 +1,43 @@
+<app-nav></app-nav>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="over">
+    <!-- Table Filters -->
+    <div>
+      <!-- Search Filters -->
+      <div class="search-filter">
+        <mat-form-field appearance="outline" class="mat-elevation-z1">
+          <div class="search-icons">
+            <mat-icon matSuffix class="search" matTooltip="Search">search</mat-icon>
+            <div class="vertical"></div>
+            <mat-icon matTooltip="Clear" (click)="clearSearchFilter()">close</mat-icon>
+          </div>
+          <input (keyup)="applySearchFilter($any($event.target).value)" matInput [(ngModel)]="searchInput" #filter placeholder="Search alerts" autocomplete="off" style="color: black;">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- UC Alerts Table-->
+    <div class="alerts-table">
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z2"> 
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row" class="title-cell" (click)="routeToAlertDetail(row)"><p class="title">Emergency Reported</p><p class="address">{{row.address}}</p></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row" class="date-cell"><span class="date-span">{{row.date | date: 'MM/dd/yyyy'}}</span></mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay" (click)="routeToAlertDetail(row)"></mat-row>
+      </mat-table>
+    </div>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <div class="content">
+      <div id="map"></div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

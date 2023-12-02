@@ -1,0 +1,226 @@
+.nav-background {
+    background-color: #E00122 !important;
+}
+
+.nav-item {
+    margin-top: 0.25em;
+}
+.navbar-toggler {
+    right: 0;
+    position: absolute;
+    margin-right: 1.75em !important;
+}
+.active {
+    color: #fff;
+}
+.nav-link:hover {
+    color: #fff;
+}
+
+ul {
+    position: absolute;
+    right: 45px;
+}
+
+div.container.px-5 {
+    margin-left: 0 !important;
+}
+
+.circle {
+    display: inline-block;
+    background-color: #E00122;
+    border: solid !important;
+    border-radius: 50%;
+    border-color: #fff !important;
+    border-width: thin !important;
+    margin-left: 0.75em;
+    width: 50px; 
+    height: 50px;
+    line-height: 48px; 
+    cursor: pointer;
+  
+  .circle-inner {
+    color: white;
+    vertical-align: middle; 
+    text-align: center;
+    text-decoration: none; 
+    font-size: 15px;
+  }
+}
+
+.sub-menu-wrap {
+    z-index: 999;
+    position: absolute;
+    transform: translate(-26.5%, 24.5%);
+    // top: 105%;
+    // left: -5%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+.sub-menu {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    margin-top: 0;
+}
+.sub-menu .sub-menu-logout {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.sub-menu .sub-menu-logout p {
+    font-size: small;
+    top: 5px;
+    left: 15px;
+    position: absolute;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+.sub-menu .sub-menu-logout button {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    border: none;
+    background-color: #fff;
+    padding: 5px 10px;
+}
+.sub-menu .sub-menu-logout button:hover {
+    background-color: #f3f0f0;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user-info h3 {
+    font-weight: 500;
+}
+.user-info .user-icon {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.user-info div.user-icon {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.user-info .user-div {
+
+    .username {
+        font-size: larger;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .email {
+        font-size: small;
+        margin: 0;
+    }
+}
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 0;
+}
+.sub-menu-link p {
+    width: 100%;
+    color: #000;
+    font-size: small;
+    margin: 0;
+}
+.sub-menu-link:hover {
+    cursor: pointer;
+}
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+.sub-menu-link span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+.sub-menu-link:hover span {
+    transform: translate(5px);
+}
+.sub-menu-link:hover p {
+    font-weight: 600px;
+}
+
+.login-btn {
+    margin-left: 0.25em;
+    margin-top: 0.25em;
+    color: #ffffff8c;
+    border: solid;
+    border-width: thin;
+}
+.login-btn:hover {
+    color: #fff;
+} 
+
+.user-circle {
+    display: inline-block;
+    background-color: #fff;
+    border: solid;
+    border-width: thin;
+    border-color: #000;
+    border-radius: 50%;
+    width: 85px; 
+    height: 85px;
+    line-height: 83px; 
+  
+  .user-circle-inner {
+    color: #000;
+    vertical-align: middle; 
+    text-align: center;
+    text-decoration: none; 
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        left: 0;
+        top: 100% !important;
+        margin-left: 2.75em;
+        display: contents;
+    }
+
+    .sub-menu-wrap {
+        transform: translate(-18%, 16%) !important;
+    }
+
+    .circle {
+        margin-left: 0 !important;
+    }
+
+    .top {
+        top: 5% !important;
+    }
+
+    .collapse.navbar-collapse.show {
+        height: 165px; //20vh;
+    }
+
+    .login-btn {
+        margin-left: 0;
+    }
+}

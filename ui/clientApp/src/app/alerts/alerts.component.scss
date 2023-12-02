@@ -1,0 +1,253 @@
+* {
+    scrollbar-width: auto;
+    scrollbar-color: lightgray #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+::ng-deep.mat-drawer-inner-container::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    padding: 12px 0;
+    background: #E00122;
+}
+
+::ng-deep .mapboxgl-ctrl-geocoder {
+    width: 87% !important;
+}
+
+mat-sidenav {
+    margin: 0;
+    width: 30vw;
+    border-right: none;
+    color: white;
+    border-radius: 10px;
+    padding: 0px 8px;
+    text-align: center;
+}
+
+mat-header-row {
+    display: none;
+}
+
+mat-cell {
+    cursor: pointer;
+}
+
+.title-cell{
+    text-align: start;
+    flex-direction: column;
+    display: block;
+
+    .title {
+        margin-bottom: 0.5em !important;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-weight: 500;
+    }
+    .address {
+        margin-bottom: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+mat-row {
+    height: 6em;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 67px);
+
+    .mat-side-nav {
+        .mat-drawer-inner-container {
+            overflow: hidden;
+        }
+    }
+
+    .date-filters {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+        justify-content: space-between;
+
+        .from-date {
+            width: 47.5%;
+        }
+
+        .to-date {
+            width: 47.5%;
+        }
+    }
+
+    .search-filter {
+        margin-top: 1em;
+        font-size: 13px;
+        width: 100%;
+
+        mat-form-field {
+            width: 100%;
+        }
+
+        mat-icon {
+            color: #000000;
+            cursor: pointer;
+        }
+
+        .search-icons {
+            right: 0;
+            top: 15%;
+            display: flex;
+            position: absolute;
+
+            .search {
+                margin-right: 1em;
+            }
+
+            .vertical {
+                height: 25px;
+                position: absolute;
+                left: 50%;
+                border-left: 6px solid black;
+                border-width: thin;
+            }
+        }
+    }
+
+    .alerts-table {
+        height: 90%;
+        overflow: auto;
+        overflow-x: hidden;
+        mat-row {
+            cursor: pointer;
+        }
+    }
+}
+
+mat-sidenav-content {
+    overflow: hidden;
+    right: 0;
+    position: absolute;
+}
+
+#map {
+    height: calc(100vh - 67px);
+    width: 70vw;
+    margin: auto;
+}
+
+.menu {
+
+}
+.menu ul {
+    padding: 0;
+    margin: 0;
+}
+.menu ul li{
+    list-style-type: none;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 24px;
+}
+.menu ul li:hover{ 
+    color: #000000;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.date-cell {
+    padding-right: 0 !important;
+}
+
+
+@media (min-width: 1400px) {
+    .date-cell {
+        transform: translate(55%, -30%);
+    }
+}
+@media (max-width: 1400px) {
+    #map {
+        width: 70vw !important;
+    }
+
+    .date-cell {
+        transform: translate(50%, -30%);
+    }
+}
+@media (max-width: 1250px) {
+    .date-cell {
+        transform: translate(55%, -30%);
+    }
+    #map {
+        width: 60vw !important;
+    }
+    mat-sidenav {
+        width: 40vw !important;
+    }
+}
+@media (max-width: 1150px) {
+    .date-cell {
+        transform: translate(45%, -30%);
+    }
+}
+@media (max-width: 1150px) {
+    .date-cell {
+        transform: translate(40%, -30%);
+    }
+}
+@media (max-width: 992px) {
+    #map {
+        width: 55vw !important;
+    }
+    mat-sidenav {
+        width: 45vw !important;
+    }
+}
+@media (max-width: 959px) {
+    mat-sidenav {
+        transform: none !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+}
+@media (max-width: 768px) {
+    #map {
+        width: 50vw !important;
+    }
+    mat-sidenav {
+        width: 50vw !important;
+    }
+}
+@media (max-width: 576px) {
+    #map {
+        width: 20vw !important;
+    }
+    mat-sidenav {
+        width: 80vw !important;
+    }
+}
+@media (max-width: 500px) {
+    #map {
+        width: 0vw !important;
+    }
+    mat-sidenav {
+        width: 100vw !important;
+    }
+}

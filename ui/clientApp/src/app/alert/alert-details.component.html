@@ -1,0 +1,58 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <h3 class="title">{{ data.title }}</h3>
+    <div class="row">
+        <div id="map"></div>
+        <!-- <agm-map id="pan" [zoom]="16" [longitude]="data.longitude" [latitude]="data.latitude">
+
+        </agm-map> -->
+
+        <!-- <agm-street-view-control [position]=""></agm-street-view-control> -->
+        <div class="updates">
+            <!-- <h4 class="updates-header">Updates</h4>
+            <ul>
+                <li *ngFor="let description of descriptions" class="updates-list-item">
+                    <span>{{ description }}</span>
+                </li>
+            </ul> -->
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+                <ng-container matColumnDef="updates">
+                    <mat-header-cell *matHeaderCellDef>Updates</mat-header-cell>
+                    <mat-cell *matCellDef="let row"><span>{{row}}</span></mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+              <!-- <thead class="header">
+                  <tr>
+                      <th>Updates</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let dataItem of descriptions" style="height: 5em;">
+                      <td style="text-align: start;">
+                        {{dataItem}} 
+                      </td>
+                  </tr>
+              </tbody> -->
+            </mat-table>
+            <!-- <table class="table table-striped">
+                <thead class="header">
+                    <tr>
+                        <th>Updates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dataItem of descriptions" style="height: 5em;">
+                        <td style="text-align: start;">
+                          {{dataItem}} 
+                        </td>
+                    </tr>
+                </tbody>
+              </table> -->
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

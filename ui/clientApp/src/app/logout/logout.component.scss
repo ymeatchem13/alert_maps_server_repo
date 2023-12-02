@@ -1,0 +1,42 @@
+.container {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-y: clip;
+    z-index: 0;
+    height: 100%;
+
+    .main-img {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: -1;
+    }
+
+    .logout-container {
+        z-index: 2;
+        height: 40vh;
+        width: 22.5vw;
+        background-color: #000;
+        transform: translate(175%, 5%);
+        color: #fff;
+        opacity: 0.75 !important;
+
+        img {
+            margin-left: 1em;
+        }
+    }
+
+    .container-text {
+        margin-bottom: 1.5em;
+        margin-left: 1.5em;
+        position: absolute;
+        bottom: 0;
+        h3 {
+            font-weight: 400;
+        }
+        a {
+            color: #fff !important;
+        }
+    }
+}

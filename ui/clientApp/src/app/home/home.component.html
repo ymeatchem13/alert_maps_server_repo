@@ -1,0 +1,148 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <!-- Home Image -->
+  <div>
+    <img src="../assets/bearcats.jpg" class="main-img">
+    <div class="main-text">
+      <h1 class="safe-text">Keeping Bearcats Safe.</h1>
+      <div class='console-container alert-text'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+      <button routerLink="/alerts" class="btn btn-primary alert-btn">View Alerts</button>
+    </div>
+  </div>
+
+
+  <!-- Our Team -->
+  <div class="team-container">
+    <!-- About section one-->
+    <section class="py-5">
+      <div class="px-5 my-5">
+          <div class="row gx-5 align-items-center">
+              <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="../assets/map_markers.png" alt="..." /></div>
+              <div class="col-lg-6">
+                  <h2 class="fw-bolder">Our Problem</h2>
+                  <p class="lead fw-normal text-muted mb-0">The UC Alert system relies on email notications to warn students about emergencies or inclement weather happening on the UC Campus. However, this system only features a few details. Moreover, some students could have a hard time identifying these addresses.</p>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!-- About section two-->
+    <section class="py-5 bg-light">
+        <div class="px-5 my-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="../assets/tech_used.jpg" alt="..." /></div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bolder">Our Solution</h2>
+                    <p class="lead fw-normal text-muted mb-0">Alert Map is a web application that reveals to users the incidents reported in real time. Allowing users to identify exactly where  incidents are reported in. In addition, Alert Maps will suggest to users an alternater route that is safer to reach their destination. Furthermore, the data collected is based on the UC public safety alert system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+      <div class="row">
+        <h1>Our Team</h1>
+      </div>
+      <div class="row">
+        <!-- Column 1 -->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="../assets/collin_headshot.png" style="height: 112px;"/>
+            </div>
+            <h3>Collin Ledbetter</h3>
+            <p>Cyber Security</p>
+            <div class="icons">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/colledbetter/">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="ledbetcp@mail.uc.edu">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 2 -->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="../assets/yosh_headshot.jpg" style="height: 112px;"/>
+            </div>
+            <h3>Yoshua Meatchem</h3>
+            <p>Developer</p>
+            <div class="icons">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/yoshua-meatchem-a8b597193/">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/ymeatchem13">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="meatchya@mail.uc.edu">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 3 -->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="../assets/kiro_headshot.png" style="height: 112px;"/>
+            </div>
+            <h3>Kirollos Mankarious</h3>
+            <p>Cyber Security</p>
+            <div class="icons">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/kirollos-mankarious.">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="mankarka@mail.uc.edu">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+</div>
+
+
+<app-footer></app-footer>
+
+<!-- <div *ngIf="!loginDisplay">
+  <p>Please sign-in to see your profile information.</p>
+</div>
+
+<div *ngIf="loginDisplay">
+  <p>Login successful!</p>
+  <p>Request your profile information by clicking Profile above.</p>
+</div> -->
+
+<!-- <div *ngIf="(afAuth.user | async)">
+    User is logged in
+
+    <br>
+    <button mat-raised-button color="primary" (click)="logout()" type="button">
+        Log out
+    </button>
+</div>
+<div *ngIf="!(afAuth.user | async)">
+    User is not logged in
+</div> -->
