@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js", 
     "build": "ng build",
     "watch": "ng build --watch --configuration development --deploy-url /clientApp/ --base-href /clientApp/",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build-prod"
   },
   "private": true,
   "dependencies": {
@@ -65,5 +66,9 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.6.2",
     "webpack-pwa-manifest": "^4.3.0"
+  },
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.0"
   }
 }
